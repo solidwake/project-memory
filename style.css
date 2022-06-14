@@ -4,7 +4,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    list-style: none;
     font-family: 'Manrope', sans-serif;
 }
 
@@ -39,22 +38,41 @@ body {
 
 .cards .card {
     cursor: pointer;
+    position: relative;
+    perspective: 1600px;
+    transform-style: preserve-3d;
     height: calc(100% / 4 - 10px);
     width: calc(100% / 4 - 10px);
 }
 
-.cards .card .view {
+.card .view {
     width: 100%;
     height: 100%;
+    position: absolute;
     background: #fff;
     border-radius: 7px;
+    transition: transform 0.25s linear;
+    backface-visibility: hidden;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-.card .front-view {
-    display: none;
+.card .front-view span {
+    color: #4361ee;
+    font-size: 6.5rem;
+}
+
+.card .back-view {
+    transform: rotateY(-180deg);
 }
 
 .card .back-view img {
     max-width: 9rem;
+}
+
+.card:hover .front-view {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .back-view {
+    transform: rotateY(0);
 }
