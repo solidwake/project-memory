@@ -70,7 +70,7 @@ body {
 }
 
 .card:hover .front-view {
-    transform: rotateY(-180deg);
+    transform: rotateY(180deg);
 }
 
 .card:hover .back-view {
