@@ -48,6 +48,8 @@ body {
 .cards .card .view {
     width: 100%;
     height: 100%;
+    user-select: none;
+    pointer-events: none;
     position: absolute;
     background: #fff;
     border-radius: 7px;
@@ -69,10 +71,10 @@ body {
     max-width: 9rem;
 }
 
-.card:hover .front-view {
+.card.flip .front-view {
     transform: rotateY(180deg);
 }
 
-.card:hover .back-view {
+.card.flip .back-view {
     transform: rotateY(0);
 }
