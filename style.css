@@ -45,7 +45,7 @@ body {
     width: calc(100% / 4 - 10px);
 }
 
-.card .view {
+.cards .card .view {
     width: 100%;
     height: 100%;
     position: absolute;
