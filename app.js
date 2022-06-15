@@ -51,12 +51,19 @@ function matchCards(img1, img2) {
 function shuffleCards() {
     matchedCard = 0;
     cardOne = cardTwo = '';
-    cards.forEach(card => {
+    disableDeck = false;
+    let arr = ['zaku', 'wing', 'sazabi', 'nugundam', 'gundam', 'exia', 'dom', 'deathscythe', 'zaku', 'wing', 'sazabi', 'nugundam', 'gundam', 'exia', 'dom', 'deathscythe'];
+    arr.sort(() => Math.random() > 0.5 ? 1 : -1); //Randomize array elements
+    cards.forEach((card, index) => {
         card.classList.remove('flip');
+        let imgTag = card.querySelector('img');
+        imgTag.src = `images/${arr[index]}.webp`
         card.addEventListener('click', flipCard);
     });
     disableDeck = false;
 }
+
+shuffleCards();
 
 cards.forEach(card => { //Add click event to all cards
     card.addEventListener('click', flipCard);
