@@ -20,19 +20,23 @@ function flipCard(event) {
 
 function matchCards(img1, img2) {
     if(img1 === img2) {
-        return console.log('Cards match');
+        cardOne.removeEventListener('click', flipCard);
+        cardTwo.removeEventListener('click', flipCard);
+        cardOne = cardTwo = '';
+        return;
     }
     setTimeout(() => {
         //Add shake class to both cards after 400ms
         cardOne.classList.add('shake');
         cardTwo.classList.add('shake');
-    }, 400)
+    }, 400);
 
     setTimeout(() => {
-        //Add shake class to both cards after 400ms
+        //Remove shake class from both cards after 1.2s
         cardOne.classList.remove('shake', 'flip');
         cardTwo.classList.remove('shake', 'flip');
-    }, 1200)
+        cardOne = cardTwo = ''; //Return card values to blank
+    }, 1200);
 }
 
 cards.forEach(card => { //Add click event to all cards
